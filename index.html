@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <!-- Googel font-Geist -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind + DaisyUI -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <!-- import style.css -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="bg-[#F8FAFC] min-h-screen flex justify-center items-center">
+  <main class="w-3/12 bg-white shadow-2xl mx-auto p-6 rounded-2xl">
+    <!-- <h1 class="text-4xl text-green-500 font-bold">Hello world</h1> -->
+
+    <!-- Logo Section -->
+    <div class="logo text-center space-y-1">
+      <img class="mx-auto" src="./assets/github-logo.png" alt="">
+      <h3 class="text-2xl font-semibold">GitHub Issues Tracker</h3>
+      <p class="text-[16px]">Sign in to manage your issues</p>
+    </div>
+
+    <!-- Form Section -->
+    <div class="w-full p-4 space-y-2">
+      <div>
+        <label class="label block">Username</label>
+        <input id="inputUserName" type="text" class="input w-full block" placeholder="Enter Username" />
+        <span class="text-[#4A00FF] mb-2">Default: admin</span>
+      </div>
+
+      <div>
+        <label class="label block">Password</label>
+        <input id="inputPassword" type="password" class="input w-full" placeholder="Enter Password" />
+        <span class="text-[#4A00FF] mb-2">Default: admin123</span>
+      </div>
+
+      <button id="signIn" class="btn btn-primary mt-4 w-full block">Sign In</button>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider">OR</div>
+
+
+    <!-- Demo Credentials -->
+    <section class="text-center">
+      <h1 class="text-[#64748B] font-[14px] mb-1">Demo Credentials:</h1>
+
+      <div class="bg-[#F8FAFC]">
+        <div class="py-4 px-7">
+          <p><span class="font-bold">Username:</span> admin </p>
+          <p><span class="font-bold">Password:</span> admin123</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="login.js"></script>
+</body>
+
+</html>
