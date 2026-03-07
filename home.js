@@ -116,12 +116,24 @@ function displayAllCards(data) {
   mainSection.innerHTML = "";
 
   data.forEach(item => {
+    // console.log(item.priority);
 
     let statusImage = "";
     if (item.status === "open") {
       statusImage = "./assets/Open-Status.png";
     } else {
       statusImage = "./assets/Closed- Status .png";
+    }
+
+
+    // button priority design
+    let priorityDesign = "";
+    if (item.priority == "high") {
+      priorityDesign = "bg-red-100 text-red-500 border-none rounded-full text-[16px]";
+    } else if (item.priority == "medium") {
+      priorityDesign = "bg-amber-100 text-amber-500 border-none rounded-full text-[16px]";
+    } else {
+      priorityDesign ="bg-gray-100 text-gray-500 border-none rounded-full text-[16px]"
     }
 
     // labels buttons toiri kora holo
@@ -131,18 +143,18 @@ function displayAllCards(data) {
       let icon = "";
 
       if (label === "bug") {
-        design = "bg-red-100 text-red-300 border-none rounded-full text-[16px]";
+        design = "bg-red-100 text-red-400 border-none rounded-full text-[16px]";
         icon = "./assets/bug.png";
       } else if (label === "help wanted") {
-        design = "bg-amber-50 text-amber-300 border-none rounded-full text-[16px]";
+        design = "bg-amber-100 text-amber-400 border-none rounded-full text-[16px]";
         icon = "./assets/helpWanted.png";
       } else if (label === "enhancement") {
-        design = "bg-green-50 text-green-300 border-none rounded-full text-[16px]";
+        design = "bg-green-100 text-green-400 border-none rounded-full text-[16px]";
         icon = "./assets/inhancement.png";
       } else if (label === "good first issue") {
-        design = "bg-blue-50 text-blue-300 border-none rounded-full text-[16px]";
-      } else if (label === "documentation") { 
-        design = "bg-amber-50 text-amber-300 border-none rounded-full text-[16px]";
+        design = "bg-blue-100 text-blue-400 border-none rounded-full text-[16px]";
+      } else if (label === "documentation") {
+        design = "bg-amber-100 text-amber-400 border-none rounded-full text-[16px]";
       }
 
       btns += `<button class="btn ${design}"><img src="${icon}" alt=""> ${label}</button>`;
@@ -156,12 +168,7 @@ function displayAllCards(data) {
         <!-- images part -->
         <div class="imgs flex justify-between items-center">
           <img class="block" src="${statusImage}" alt="${item.status}">
-          <button class="btn ${item.priority === "high"
-        ? "bg-red-100 text-red-300 border-none text-[16px]"
-        : item.priority === "medium"
-          ? "bg-amber-50 text-amber-300 border-none text-[16px]"
-          : "bg-green-50 text-green-300 border-none text-[16px]"
-      } rounded-full">${item.priority}</button>
+          <button class="btn ${priorityDesign} rounded-full">${item.priority}</button>
         </div>
 
         <h1 class="font-bold text-2xl line-clamp-1">${item.title}</h1>
