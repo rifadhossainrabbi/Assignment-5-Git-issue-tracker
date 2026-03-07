@@ -59,16 +59,19 @@ function displayAllCards(data) {
         design = "bg-amber-100 text-amber-400 border-none rounded-full text-[16px]";
       }
 
-      btns += `<button class="btn ${design}"><img src="${icon}" alt=""> ${label}</button>`;
+      // btns += `<button class="btn ${design}"><img src="${icon}" alt=""> ${label}</button>`;
+      btns += `<button class="btn ${design}">
+  ${icon ? `<img src="${icon}" alt="">` : ""} ${label}
+</button>`;
     });
 
     // Card toiri
     const creatDiv = document.createElement("div");
     creatDiv.innerHTML = `
-      <div class="card bg-white shadow-xl p-3 space-y-3 h-full ${cardTopBorder}">
+      <div class="card bg-white shadow-xl p-3 space-y-3 h-full ${cardTopBorder} w-full">
 
         <!-- images part -->
-        <div class="imgs flex justify-between items-center w-full">
+        <div class="imgs flex justify-between items-center">
           <img class="block" src="${statusImage}" alt="${item.status}">
           <button class="btn ${priorityDesign} rounded-full">${item.priority}</button>
         </div>
@@ -76,7 +79,7 @@ function displayAllCards(data) {
         <h1 class="font-bold text-2xl line-clamp-1">${item.title}</h1>
         <p class="text-[#64748B] text-[16px] line-clamp-2">${item.description}</p>
 
-        <div class="flex gap-1">
+        <div class="flex justify-start flex-wrap gap-2 w-full">
           ${btns}
         </div>
 
