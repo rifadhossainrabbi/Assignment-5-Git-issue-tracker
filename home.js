@@ -1,115 +1,14 @@
 console.log("hello! All ok");
 
-// document.getElementById("allBtn").addEventListener("click", function () {
-//   const allBtn = document.getElementById("allBtn");
-//   const buttons = document.getElementsByClassName("button_common");
-//   buttons.classList.remove("bg-blue-500", "text-white");
-//   allBtn.classList.add("bg-blue-500", "text-white");
-//   allCardsLoad();
-// });
-
-// async function allCardsLoad() {
-//   const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issue/{id}");
-//   console.log(res);
-//   const data = await res.json();
-//   console.log(data.data);
-// }
-
 
 async function allCardsLoad() {
   const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
   console.log(res);
   const datas = await res.json();
-  console.log(datas.data);
+  console.log(datas.data.length);
   displayAllCards(datas.data);
 }
-
-
-// "id": 1,
-//  "title": "Fix navigation menu on mobile devices",
-//  "description": "The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.",
-//   "status": "open",
-//   "labels": [
-//           "bug",
-//           "help wanted"
-//         ],
-//    "priority": "high",
-//    "author": "john_doe",
-//    "assignee": "jane_smith",
-//    "createdAt": "2024-01-15T10:30:00Z",
-//    "updatedAt": "2024-01-15T10:30:00Z"
-
-
-
-// function displayAllCards(data) {
-//   const mainSection = document.getElementById("mainSection");
-//   mainSection.innerHTML = "";
-
-//   data.forEach(data => {
-//     console.log(data);
-//     const creatDiv = document.createElement("div");
-
-//     // open hoile open img r closed hoile closed img dekhabo
-//     let statusImage = "";
-//     if (data.status == "open") {
-//       statusImage = "./assets/Open-Status.png";
-//     } else if(data.status == "closed"){
-//       statusImage = "./assets/Closed- Status .png"
-//     }
-//     else if (data.labels =="high") {
-//       statusImage = "./"
-//     }
-
-//     // priority onujai design hobe
-//     let priorityDesign = "";
-//     if (data.priority == "high" && data.btn == "bug") {
-//       priorityDesign = "bg-red-100 text-red-300 border-none text-[16px]";
-//     }
-//     else if (data.priority == "medium" && data.btn == "help wanted") {
-//       priorityDesign = "bg-amber-50 text-amber-300 border-none text-[16px]";
-//     }
-//     else if (data.btn == "enhancement") {
-//       priorityDesign = "bg-green-50 text-green-300 border-none rounded-full text-[16px]";
-//     }
-
-//     // card er niche j duita button ase tar looping
-//     let btns = "";
-//     for (btn of data.labels) {
-//       // console.log(btn);
-//       btns = `<button class="btn ${priorityDesign}"><img src="./assets/bug.png" alt="">
-//             Bug</button>`;
-//     }
-
-
-//     creatDiv.innerHTML = `
-//       <!-- Card -->
-//       <div class="card bg-white shadow-xl p-3 space-y-3 h-full">
-
-//         <!-- images part -->
-//         <div class="imgs flex justify-between items-center">
-//           <img class="block" src="${statusImage}" alt="">
-//           <button class="btn ${priorityDesign} rounded-full">${data.priority}</button>
-//         </div>
-
-//         <h1 class="font-bold text-2xl line-clamp-1">${data.title}</h1>
-//         <p class="text-[#64748B] text-[16px] line-clamp-2">${data.description}</p>
-
-//         <div class="flex gap-1">
-//           ${btns}
-//         </div>
-
-//         <div class="divider"></div>
-
-//         <div class="text-[#64748B] space-y-1 p-2">
-//           <p>#1
-//             by john_doe</p>
-//           <p>1/15/2024</p>
-//         </div>
-//       </div>
-//     `;
-//     mainSection.appendChild(creatDiv);
-//   });
-// }
+allCardsLoad();
 
 function displayAllCards(data) {
   const mainSection = document.getElementById("mainSection");
@@ -119,10 +18,13 @@ function displayAllCards(data) {
     // console.log(item.priority);
 
     let statusImage = "";
+    let cardTopBorder = "";
     if (item.status === "open") {
       statusImage = "./assets/Open-Status.png";
+      cardTopBorder = "border-t-4 border-green-500";
     } else {
       statusImage = "./assets/Closed- Status .png";
+      cardTopBorder = "border-t-4 border-purple-500";
     }
 
 
@@ -133,7 +35,7 @@ function displayAllCards(data) {
     } else if (item.priority == "medium") {
       priorityDesign = "bg-amber-100 text-amber-500 border-none rounded-full text-[16px]";
     } else {
-      priorityDesign ="bg-gray-100 text-gray-500 border-none rounded-full text-[16px]"
+      priorityDesign = "bg-gray-100 text-gray-500 border-none rounded-full text-[16px]"
     }
 
     // labels buttons toiri kora holo
@@ -160,10 +62,10 @@ function displayAllCards(data) {
       btns += `<button class="btn ${design}"><img src="${icon}" alt=""> ${label}</button>`;
     });
 
-    // Card তৈরি
+    // Card toiri
     const creatDiv = document.createElement("div");
     creatDiv.innerHTML = `
-      <div class="card bg-white shadow-xl p-3 space-y-3 h-full">
+      <div class="card bg-white shadow-xl p-3 space-y-3 h-full ${cardTopBorder}">
 
         <!-- images part -->
         <div class="imgs flex justify-between items-center">
@@ -189,10 +91,16 @@ function displayAllCards(data) {
 
     mainSection.appendChild(creatDiv);
   });
+  const issueNumberSet = document.getElementById("issueNumber").innerText = `${mainSection.children.length} Issues`;
 }
 
 
-function clickButton(id) {
+async function clickButton(id) {
+
+  const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+  console.log(res);
+  const datas = await res.json();
+
   const allBtn = document.getElementById(id);
   const buttons = document.getElementsByClassName("button_common");
 
@@ -200,14 +108,19 @@ function clickButton(id) {
   for (let btn of buttons) {
     btn.classList.remove("bg-blue-500", "text-white");
   }
-
+  
   allBtn.classList.add("bg-blue-500", "text-white");
 
   if (id == "allBtn") {
     allCardsLoad();
-    document.getElementById("mainSection").classList.remove("hidden");
-  } else {
-    console.log("api ekhono fetch kora hoy nai");
-    document.getElementById("mainSection").classList.add("hidden");
+    const mainSection = document.getElementById("mainSection").classList.remove("hidden");
+    // console.log(mainSection.children.length);
+  } else if (id == "openBtn") {
+    const openCards = datas.data.filter(card => card.status === "open");
+    displayAllCards(openCards);
+  }
+  else if (id == "closedBtn") {
+    const closedCards = datas.data.filter(card => card.status === "closed");
+    displayAllCards(closedCards);
   }
 }
