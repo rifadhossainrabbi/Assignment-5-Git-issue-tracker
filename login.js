@@ -20,7 +20,7 @@ document.getElementById("signIn").addEventListener("click", function () {
   // match the values
   if (name == "admin" && pass == "admin123") {
     alert("Sign in success");
-    window.location.assign("./home.html");
+    window.location.assign("home.html");
   } else {
     alert("Sign in faild");
   }
