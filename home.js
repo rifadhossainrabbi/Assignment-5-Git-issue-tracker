@@ -68,7 +68,7 @@ function displayAllCards(data) {
       <div class="card bg-white shadow-xl p-3 space-y-3 h-full ${cardTopBorder}">
 
         <!-- images part -->
-        <div class="imgs flex justify-between items-center">
+        <div class="imgs flex justify-between items-center w-full">
           <img class="block" src="${statusImage}" alt="${item.status}">
           <button class="btn ${priorityDesign} rounded-full">${item.priority}</button>
         </div>
