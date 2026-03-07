@@ -1,11 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Git Issues Tracker</title>
+
+  <!-- Googel font-Geist -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind + DaisyUI -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="shortcut icon" href="./assets/Aperture.png" type="image/x-icon">
+
+  <!-- Font Awsome  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-  <h1>Hello World</h1>
+
+<body class="bg-[#F8FAFC] min-h-screen">
+
+  <!-- header -->
+  <header class="bg-white p-2">
+    <nav class="w-11/12 my-3 mx-auto flex justify-between items-center">
+      <div class="logo flex items-center">
+        <div><img class="w-10" src="./assets/github-logo.png" alt=""></div>
+        <p class="font-semibold text-2xl ml-2">GitHub Issues Tracker</p>
+      </div>
+
+      <div class="flex gap-3">
+        <label class="input">
+          <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </g>
+          </svg>
+          <input class="w-[300px]" type="search" required placeholder="Search issues..." />
+        </label>
+        <button class="btn btn-primary join-item"><i class="fa-solid fa-plus mt-[3px]"></i> New Issue</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- button section -->
+  <section class="w-10/12 mx-auto bg-white mt-10 p-3 flex gap-2.5 rounded-xl">
+    <button id="allBtn" onclick="clickButton(id)" class="button_common btn btn-soft btn-primary">All</button>
+    <button id="openBtn" onclick="clickButton(id)" class="button_common btn btn-soft btn-primary">Open</button>
+    <button id="closedBtn" onclick="clickButton(id)" class="button_common btn btn-soft btn-primary">Closed</button>
+  </section>
+
+
+  <!-- main section -->
+  <section class="main w-10/12 mx-auto my-4 rounded-xl min-h-screen">
+
+    <!-- header of main section -->
+    <header class="flex justify-between p-5 bg-white rounded-t-xl">
+
+      <!-- header left -->
+      <div class="flex gap-2 items-center">
+        <div class="p-2 bg-[#ECE4FF] rounded-full block"><img class="block" src="./assets/Aperture.png" alt=""></div>
+        <div>
+          <h3 class="font-semibold text-2xl">50 Issues</h3>
+          <p class="text-[#64748B]">Track and manage your project issues</p>
+        </div>
+      </div>
+
+      <!-- header right -->
+      <div class="flex gap-3">
+        <p class="flex items-center gap-1"><img class="w-3 h-3" src="./assets/greenDot.png" alt="">Open</p>
+        <p class="flex items-center gap-1"><img class="w-3 h-3" src="./assets/purpleDot.png" alt="">Closed</p>
+      </div>
+
+    </header>
+
+    <!-- main part of main section -->
+    <main class="bg-[#64748B10] grid grid-cols-1 sm:grid-cols-4 p-6">
+      <!-- <h1>hello</h1> -->
+
+
+      <!-- Card -->
+      <div class="card bg-white shadow-xl p-3 space-y-3">
+
+        <!-- images part -->
+        <div class="imgs flex justify-between items-center">
+          <img class="block" src="./assets/Open-Status.png" alt="">
+          <button class="btn bg-red-100 text-red-300 border-none text-[16px] rounded-full">Error</button>
+        </div>
+
+        <h1 class="font-bold text-2xl">Fix navigation menu on mobile devices</h1>
+        <p class="text-[#64748B] text-[16px]">The navigation menu doesn't collapse properly on mobile devices...</p>
+
+        <div class="flex gap-1">
+          <button class="btn bg-red-100 text-red-300 border-none rounded-full text-[16px]"><img src="./assets/bug.png" alt="">
+            Bug</button>
+          <button class="btn bg-amber-50 text-amber-300 border-none rounded-full text-[16px]"><img src="./assets/helpWanted.png" alt="">
+            Help Wanted</button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="text-[#64748B] space-y-1 p-2">
+          <p>#1
+            by john_doe</p>
+          <p>1/15/2024</p>
+        </div>
+      </div>
+    </main>
+  </section>
+
+
+  <script src="./home.js"></script>
 </body>
+
 </html>
