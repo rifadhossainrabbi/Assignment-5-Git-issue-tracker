@@ -196,7 +196,7 @@ function displayAllCards(data) {
 
     mainSection.appendChild(creatDiv);
   });
-  const issueNumberSet = document.getElementById("issueNumber").innerText = `${mainSection.children.length} Issues`;
+  document.getElementById("issueNumber").innerText = `${mainSection.children.length} Issues`;
   hideSpinner();
 }
 
@@ -240,11 +240,9 @@ async function clickButton(id) {
   else if (id == "closedBtn") {
     const closedCards = datas.data.filter(card => card.status === "closed");
     displayAllCards(closedCards);
-  } else if (id == "searchBtn") {
+  } else if (id == "issueSearchBtn") {
     const inputSearch = document.getElementById("inputSearch");
     const inputSearchValue = inputSearch.value.toLowerCase();
-    const allWords = datas.data;
-    console.log(allWords);
 
     fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${inputSearchValue}`)
       .then(res => res.json())
