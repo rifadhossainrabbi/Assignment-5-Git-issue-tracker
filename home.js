@@ -45,23 +45,23 @@ function displayAllCards(data) {
       let icon = "";
 
       if (label === "bug") {
-        design = "bg-red-100 text-red-400 border-none rounded-full text-[12px]";
+        design = "bg-red-50 text-red-500 border-none rounded-full text-[12px]";
         icon = "./assets/bug.png";
       } else if (label === "help wanted") {
-        design = "bg-amber-100 text-amber-400 border-none rounded-full text-[12px]";
+        design = "bg-amber-50 text-amber-500 border-none rounded-full text-[12px]";
         icon = "./assets/helpWanted.png";
       } else if (label === "enhancement") {
-        design = "bg-green-100 text-green-400 border-none rounded-full text-[12px]";
+        design = "bg-green-50 text-green-500 border-none rounded-full text-[12px]";
         icon = "./assets/inhancement.png";
       } else if (label === "good first issue") {
-        design = "bg-blue-100 text-blue-400 border-none rounded-full text-[12px]";
+        design = "bg-blue-50 text-blue-500 border-none rounded-full text-[12px]";
       } else if (label === "documentation") {
-        design = "bg-amber-100 text-amber-400 border-none rounded-full text-[12px]";
+        design = "bg-amber-50 text-amber-500 border-none rounded-full text-[12px]";
       }
 
       // btns += `<button class="btn ${design}"><img src="${icon}" alt=""> ${label}</button>`;
-      btns += `<button class="btn ${design}">
-      ${icon ? `<img src="${icon}" alt="">` : ""} ${label}
+      btns += `<button class="flex items-center gap-1.5 py-1.5 px-3 ${design}">
+      ${icon ? `<img class="w-[14px] h-[14px] block" src="${icon}" alt="">` : ""} ${label}
       </button>`;
     });
 
@@ -73,7 +73,7 @@ function displayAllCards(data) {
         <!-- images part -->
         <div class="imgs flex justify-between items-center">
           <img class="block" src="${statusImage}" alt="${item.status}">
-          <button class="btn ${priorityDesign} rounded-full">${item.priority}</button>
+          <button class=" py-1.5 px-3 ${priorityDesign} rounded-full">${item.priority}</button>
         </div>
 
         <h1 class="font-bold text-2xl line-clamp-1">${item.title}</h1>
