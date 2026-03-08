@@ -27,22 +27,16 @@ const loadModal = (id) => {
   modal.showModal();
 }
 
-// "id": 1,
-//  "title": "Fix navigation menu on mobile devices",
-//  "description": "The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.",
-//  "status": "open",
-//   "labels": [
-//           "bug",
-//           "help wanted"
-//         ],
-//   "priority": "high",
-//   "author": "john_doe",
-//   "assignee": "jane_smith",
-//   "createdAt": "2024-01-15T10:30:00Z",
-//   "updatedAt": "2024-01-15T10:30:00Z"
 
 const displayModal = (item) => {
   console.log(item);
+
+  let openAndCloseDesign = "";
+  if (item.status == "open") {
+    openAndCloseDesign = "py-1 px-4 bg-green-500 text-white rounded-full";
+  } else if (item.status == "closed") {
+    openAndCloseDesign = "py-1 px-4 bg-red-500 text-white rounded-full";
+  }
 
   let priorityDesign = "";
   if (item.priority == "high") {
@@ -84,7 +78,7 @@ const displayModal = (item) => {
     <h3 class="text-lg font-bold">${item.title}</h3>
 
         <div class="flex items-center gap-8">
-          <button class="py-1 px-4 bg-green-500 text-white rounded-full">${item.status}</button>
+          <button class="${openAndCloseDesign}">${item.status}</button>
           <ul class="flex gap-8">
             <li class="list-disc">Opened by ${item.assignee ? item.assignee : "unknown"}</li>
             <li class="list-disc">${new Date(item.createdAt).toLocaleDateString()}</li>
