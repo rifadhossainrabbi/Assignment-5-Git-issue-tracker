@@ -26,7 +26,8 @@
 
   <!-- header -->
   <header class="bg-white p-2">
-    <nav class="w-full mx-auto sm:w-11/12 my-3 flex flex-col sm:flex-row gap-3 justify-center sm:justify-between items-center text-center sm:text-left">
+    <nav
+      class="w-full mx-auto sm:w-11/12 my-3 flex flex-col sm:flex-row gap-3 justify-center sm:justify-between items-center text-center sm:text-left">
 
       <div class="logo flex items-center justify-center">
         <div><img class="w-10" src="./assets/github-logo.png" alt=""></div>
@@ -43,17 +44,27 @@
           </svg>
           <input class="w-full sm:w-[300px]" type="search" required placeholder="Search issues..." />
         </label>
-        <button class="btn btn-primary border-0 rounded-tl-none rounded-bl-none sm:rounded-sm join-item"><i class="fa-solid fa-plus mt-[3px]"></i> New Issue</button>
+        <button class="btn btn-primary border-0 rounded-tl-none rounded-bl-none sm:rounded-sm join-item"><i
+            class="fa-solid fa-plus mt-[3px]"></i> New Issue</button>
       </div>
     </nav>
   </header>
 
   <!-- button section -->
   <section class="w-full sm:w-9/12 mx-auto bg-white mt-10 p-3 flex gap-2.5 rounded-xl">
-    <button id="allBtn" onclick="clickButton(id)" class="button_common btn btn-soft btn-primary bg-blue-500 text-white">All</button>
+    <button id="allBtn" onclick="clickButton(id)"
+      class="button_common btn btn-soft btn-primary bg-blue-500 text-white">All</button>
     <button id="openBtn" onclick="clickButton(id)" class="button_common btn btn-soft btn-primary">Open</button>
     <button id="closedBtn" onclick="clickButton(id)" class="button_common btn btn-soft btn-primary">Closed</button>
   </section>
+
+
+  <section id="spinner" class="flex justify-center items-center my-5 hidden">
+    <span class="loading loading-spinner text-primary"></span>
+    <span class="loading loading-spinner text-secondary"></span>
+    <span class="loading loading-spinner text-accent"></span>
+  </section>
+
 
 
   <!-- main section -->
@@ -83,6 +94,7 @@
     <main id="mainSection" class="bg-[#64748B10] grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4 p-6">
 
     </main>
+
   </section>
 
 

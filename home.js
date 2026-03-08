@@ -1,14 +1,21 @@
 console.log("hello! All ok");
 
 
-async function allCardsLoad() {
-  const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
-  console.log(res);
-  const datas = await res.json();
-  console.log(datas.data.length);
-  displayAllCards(datas.data);
+// spineer show function
+const showSpinner = () => {
+  const spinner = document.getElementById("spinner");
+  const mainSection = document.getElementById("mainSection");
+  spinner.classList.remove("hidden");
+  mainSection.classList.add("hidden");
 }
-allCardsLoad();
+
+const hideSpinner = () => {
+  const spinner = document.getElementById("spinner");
+  const mainSection = document.getElementById("mainSection");
+  spinner.classList.add("hidden");
+  mainSection.classList.remove("hidden");
+}
+
 
 function displayAllCards(data) {
   const mainSection = document.getElementById("mainSection");
@@ -95,10 +102,27 @@ function displayAllCards(data) {
     mainSection.appendChild(creatDiv);
   });
   const issueNumberSet = document.getElementById("issueNumber").innerText = `${mainSection.children.length} Issues`;
+  hideSpinner();
 }
 
 
+
+
+async function allCardsLoad() {
+  showSpinner();
+  
+  const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+  console.log(res);
+  const datas = await res.json();
+  console.log(datas.data.length);
+  displayAllCards(datas.data);
+  // hideSpinner();
+}
+allCardsLoad();
+
+
 async function clickButton(id) {
+  showSpinner();
 
   const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
   console.log(res);
@@ -116,7 +140,7 @@ async function clickButton(id) {
 
   if (id == "allBtn") {
     allCardsLoad();
-    const mainSection = document.getElementById("mainSection").classList.remove("hidden");
+    // const mainSection = document.getElementById("mainSection").classList.remove("hidden");
     // console.log(mainSection.children.length);
   } else if (id == "openBtn") {
     const openCards = datas.data.filter(card => card.status === "open");
@@ -127,3 +151,5 @@ async function clickButton(id) {
     displayAllCards(closedCards);
   }
 }
+
+// clickButton();
