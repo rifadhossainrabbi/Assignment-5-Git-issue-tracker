@@ -26,13 +26,14 @@
 
   <!-- header -->
   <header class="bg-white p-2">
-    <nav class="w-11/12 my-3 mx-auto flex justify-between items-center">
-      <div class="logo flex items-center">
+    <nav class="w-full mx-auto sm:w-11/12 my-3 flex flex-col sm:flex-row gap-3 justify-center sm:justify-between items-center text-center sm:text-left">
+
+      <div class="logo flex items-center justify-center">
         <div><img class="w-10" src="./assets/github-logo.png" alt=""></div>
         <p class="font-semibold text-2xl ml-2">GitHub Issues Tracker</p>
       </div>
 
-      <div class="flex gap-3">
+      <div class="flex justify-center sm:gap-3 border rounded-lg sm:border-0 sm:p-0">
         <label class="input">
           <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor">
@@ -40,15 +41,15 @@
               <path d="m21 21-4.3-4.3"></path>
             </g>
           </svg>
-          <input class="w-[300px]" type="search" required placeholder="Search issues..." />
+          <input class="w-full sm:w-[300px]" type="search" required placeholder="Search issues..." />
         </label>
-        <button class="btn btn-primary join-item"><i class="fa-solid fa-plus mt-[3px]"></i> New Issue</button>
+        <button class="btn btn-primary border-0 rounded-tl-none rounded-bl-none sm:rounded-sm join-item"><i class="fa-solid fa-plus mt-[3px]"></i> New Issue</button>
       </div>
     </nav>
   </header>
 
   <!-- button section -->
-  <section class="w-9/12 mx-auto bg-white mt-10 p-3 flex gap-2.5 rounded-xl">
+  <section class="w-full sm:w-9/12 mx-auto bg-white mt-10 p-3 flex gap-2.5 rounded-xl">
     <button id="allBtn" onclick="clickButton(id)" class="button_common btn btn-soft btn-primary bg-blue-500 text-white">All</button>
     <button id="openBtn" onclick="clickButton(id)" class="button_common btn btn-soft btn-primary">Open</button>
     <button id="closedBtn" onclick="clickButton(id)" class="button_common btn btn-soft btn-primary">Closed</button>
@@ -56,10 +57,10 @@
 
 
   <!-- main section -->
-  <section class="main w-9/12 mx-auto my-4 rounded-xl min-h-screen">
+  <section class="main w-full sm:w-9/12 mx-auto my-4 rounded-xl min-h-screen">
 
     <!-- header of main section -->
-    <header class="flex justify-between p-5 bg-white rounded-t-xl">
+    <header class="flex flex-wrap gap-3 justify-between p-5 bg-white rounded-t-xl">
 
       <!-- header left -->
       <div class="flex gap-2 items-center">
@@ -79,7 +80,7 @@
     </header>
 
     <!-- main part of main section -->
-    <main id="mainSection" class="bg-[#64748B10] grid grid-cols-1 sm:grid-cols-4 gap-4 p-6">
+    <main id="mainSection" class="bg-[#64748B10] grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4 p-6">
 
     </main>
   </section>
