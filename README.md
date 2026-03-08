@@ -1,90 +1,3 @@
-# 🌟 Welcome To (সহজ সরল সিম্পল) Assignment - 5
-
-# **📅 Deadline For 60 marks:** 9th March, 2026 (11:59 pm ⏱️)  
-#  📅 No Deadline For 50 marks  
-# **📅 Deadline For 30 marks:** Any time after 9th March.
-
----
-
-# Assignment-05: GitHub Issues Tracker
-
-
-### **API Endpoints:**
-###  **All Issues:** 
-  - https://phi-lab-server.vercel.app/api/v1/lab/issues 
-
-
-###  **Single Issue:**
-   - https://phi-lab-server.vercel.app/api/v1/lab/issue/{id}
-
-   - Example: https://phi-lab-server.vercel.app/api/v1/lab/issue/33
-
-
-###  **Search Issue:** https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q={searchText}
-
-   - Example:  https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=notifications
-
-
----
-
-## 📝 Main Requirements
-
-## 🎨 Design Part
-
-## Login Page
-- Create a login page containing a logo, title, and sub-title
-- Below that, there will be 2 inputs, a sign-in button, and a demo credential to sign in. Follow the Figma for this page 
-- Styled as per Figma
-
-## Main Page: 
-
-### Navbar: 
-
-- Navbar with website logo/name on the left
-- Search input and button on the right
-
-### Tab Section like Figma: 
-
-- 3 tab ( All, Open, Closed) at the top of this section.(**All**, **Open**, **Closed**)
-
-- Below the tab, there will be an icon, the issue count, some text on the left, and an open and closed marker on the right
-
-- Responsiveness: The website should be responsive for mobile devices. It is totally up to you. 
-
-
---- 
-
-
-## ⚙️ Functionalities
-- In login page, there will be default admin credentials (username, password). You need to sign in using these credentials.
-
-- Load all issues and display as per Figma
-
-- On clicking on an open or closed tab, it will load the issues data of the related tab and show it in a display-like card in a 4-column layout like Figma. By default, it will show all data 
-
-- Each card shows:
-  - Title
-  - Description
-  - Status
-  - Category
-  - Author
-  - Priority
-  - Label
-  - CreatedAt
-- Clicking on a tree name in a card will open a modal and show all the information about that Issue. 
-
-### 🚀 Challenges
-
-
-- Show the card Top border based on their category(open, closed), open card will have Green Boder, closed card will have a purple border on top. 
-
-- Loading spinner on data load
-
-- Show active button on changing category names
-
-- Implement Search Functionality and 8 meaningful github commit.  
-
-- Create a readme file and answer this question on your own. Don’t copy-paste from Google or any AI chatbot. 
     - 1️⃣ What is the difference between var, let, and const?
     - 2️⃣ What is the spread operator (...)?
     - 3️⃣ What is the difference between map(), filter(), and forEach()?
@@ -92,38 +5,115 @@
     - 5️⃣ What are template literals?
 
 
----
+  ---------------------------------------------------Question-1:--------------------------------------------------------
+  1️⃣ What is the difference between var, let, and const?
 
-## 🛠️ Technology Stack
+  Ans:
+  var,let and const holo javascript er variable. ES6 er age js a var use hoto shudhu pore let const ashse.
 
-- **HTML**
-- **CSS** (Vanilla/Tailwind/DaisyUI)
-- **JavaScript** (Vanilla)
+  var er boisisto gulo--- 
+  i. Var holo puraton js variable
+  ii. Var k sob jayga theke access kora jay kintu function scope er baire access  kora jay na
+  iii. Var Hoist hoy
+  iv. var k redeclare kora jay
+  v. var k reassign o kora jay
 
----
+  let er boisisto gulo---
+  i.let modern js a use hoy
+  ii. let holo Block scope. Mane {} er baire access kora jay na
+  iii. let Hoist hoy but Temporal Dead Jone a thake
+  iv. let k redeclare kora jay na
+  v. let k reassign kora jay
 
-## 🔑 Demo Credentials
-
-```text
-Username: admin
-Password: admin123
-```
-
-
----
-
-### Optional: 
- - No need to show status: Open, Closed styles On modals. 
- - No Need to show icon on labels 
- - No need to apply styles on Priority 
---- 
-
-
-## 📤 What to submit
-
-- **GitHub Repository Link:**
-- **Live Site Link:**
-
----
+  const er boisisto gulo---
+  i.const modern js a use hoy
+  ii. const holo Block scope. Mane {} er baire access kora jay na
+  iii. const Hoist hoy but Temporal Dead Jone a thake
+  iv. const k redeclare kora jay na
+  v. const k reassign o kora jay na but object and array er moddhe value change kora jay
 
 
+
+   ---------------------------------------------------Question-2:--------------------------------------------------------
+   2️⃣ What is the spread operator (...)?
+
+   Ans: 
+   Modern Javascript a spread operator use kora hoy object ba array er element gulo k alada kora choriye dite.Eta rest operator hisabeo use kora hoy. Use case a etar nam kokhon spread operator abar kokhno rest operator bola hoy.
+
+   keno etai use korbo?
+   1. duita array k notun array te merge korte. 
+   2. array copy kore notun array banate.
+   3. object separate kore notun object banate.
+   4. duita notun object banate.
+   5. function a parameter nirdisto kintu argument jodi tar beshi hoy tobe extra argument gulo rest operator a diya dawa jay.
+
+
+    ---------------------------------------------------Question-3:--------------------------------------------------------
+    3️⃣ What is the difference between map(), filter(), and forEach()?
+
+    Ans:
+    map(), filter(), and forEach() eigulo holo Javascript er array method.
+
+   <---1: map()-->
+    map() er kaj holo ekta array er protita element er upor kaj kora notun array return kore.
+    keno map() use korbo?
+    1. array er data modify kore notun array banate.
+    2. object er data modify kore notun array banate.
+
+    <---1: filter()-->
+    filter() er kaj holo array theke nirdisto sorto onujai element ber kore notun array banay
+    filter() er subidha.
+    1. sohoje sorto onujai element nirbachon kora jay.
+    2. original array poriborton hoy na.
+    3. code soto o redable hoy.
+
+    <---1: forEach()-->
+    forEach() diya muloto looping er kaj kora hoy.
+    1. array er protita element er upor kaj kore.
+    2. notun array banay na.
+    3. array er value update kora.
+
+
+     ---------------------------------------------------Question-4:--------------------------------------------------------
+     4️⃣ What is an arrow function?
+
+     Ans:
+     arrow function holo Javascript er notun o modern syntax.Code lekha komanor jonno muloto arrow function use kora hoy.
+
+     purono syntax---
+     <!-- function add (x,y){
+      return x + y;
+     }
+     console.log(add(5,6)); -->
+
+     notun syntax----
+     <!-- const add = ()=>{
+      return a + b;
+     }
+     console.log(add(7,9)); -->
+
+    1. duita argument
+     NB: jodi ek line a likhi tobe return use kora lage na
+     <!-- const add = (a,b)=> a + b; -->
+     <!-- console.log(add(7,3)); -->
+
+     2. ekta argument
+     <!-- const divide = s => s / 3;
+     console.log(divide(9)); -->
+
+     3. kono argument na thakle
+     <!-- const greet = ()=> console.log("Hello Rifad");
+     greet(); -->
+
+     
+      ---------------------------------------------------Question-5:--------------------------------------------------------
+      5️⃣ What are template literals?
+
+      Ans:
+      template literals holo Javascript er modern syntax. Er sign holo `` (backticks) bole. Purono string '' ba "" a code likha onek jahmel hoto sothik vabe space na dile code thikvabe output a dekhato na. Pore template literals a ei somossar somadhan hoy.
+
+     template literals er subidha somuho
+     1. er moddhe ${varibale} ei vabe variable expression likhae jay.
+     2. multiple string sohoje likha jay.
+     3. code choto o sundor hoy.
+     4. dynamic vabe html toiri te valo kaj kore.
