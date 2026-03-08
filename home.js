@@ -61,8 +61,8 @@ function displayAllCards(data) {
 
       // btns += `<button class="btn ${design}"><img src="${icon}" alt=""> ${label}</button>`;
       btns += `<button class="btn ${design}">
-  ${icon ? `<img src="${icon}" alt="">` : ""} ${label}
-</button>`;
+      ${icon ? `<img src="${icon}" alt="">` : ""} ${label}
+      </button>`;
     });
 
     // Card toiri
@@ -79,7 +79,7 @@ function displayAllCards(data) {
         <h1 class="font-bold text-2xl line-clamp-1">${item.title}</h1>
         <p class="text-[#64748B] text-[16px] line-clamp-2">${item.description}</p>
 
-        <div class="flex justify-start flex-wrap gap-2 w-full">
+        <div class="flex justify-between w-full">
           ${btns}
         </div>
 
@@ -111,7 +111,7 @@ async function clickButton(id) {
   for (let btn of buttons) {
     btn.classList.remove("bg-blue-500", "text-white");
   }
-  
+
   allBtn.classList.add("bg-blue-500", "text-white");
 
   if (id == "allBtn") {
