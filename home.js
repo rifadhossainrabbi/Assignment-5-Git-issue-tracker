@@ -79,7 +79,7 @@ function displayAllCards(data) {
         <h1 class="font-bold text-2xl line-clamp-1">${item.title}</h1>
         <p class="text-[#64748B] text-[16px] line-clamp-2">${item.description}</p>
 
-        <div class="flex justify-between w-full">
+        <div class="flex justify-start gap-1.5 w-full">
           ${btns}
         </div>
 
