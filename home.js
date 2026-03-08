@@ -117,24 +117,6 @@ async function allCardsLoad() {
 allCardsLoad();
 
 
-// search syestem 
-document.getElementById("searchBtn").addEventListener("click", () => {
-  showSpinner();
-
-  const inputSearch = document.getElementById("inputSearch");
-  const inputSearchValue = inputSearch.value;
-  console.log(inputSearchValue);
-
-  fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
-    .then(res => res.json())
-    .then(data => {
-      const allWords = data.data;
-      console.log(allWords);
-      const filterWords = allWords.filter(word => word.title.toLowerCase().includes(inputSearchValue));
-      displayAllCards(filterWords);
-    });
-})
-
 
 async function clickButton(id) {
   showSpinner();
@@ -162,5 +144,12 @@ async function clickButton(id) {
   else if (id == "closedBtn") {
     const closedCards = datas.data.filter(card => card.status === "closed");
     displayAllCards(closedCards);
+  } else if (id == "searchBtn") {
+    const inputSearch = document.getElementById("inputSearch");
+    const inputSearchValue = inputSearch.value;
+    const allWords = datas.data;
+    console.log(allWords);
+    const filterWords = allWords.filter(word => word.title.toLowerCase().includes(inputSearchValue));
+    displayAllCards(filterWords);
   }
 }
