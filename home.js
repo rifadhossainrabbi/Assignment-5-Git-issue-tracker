@@ -31,11 +31,11 @@ function displayAllCards(data) {
     // button priority design
     let priorityDesign = "";
     if (item.priority == "high") {
-      priorityDesign = "bg-red-100 text-red-500 border-none rounded-full text-[16px]";
+      priorityDesign = "bg-red-100 text-red-500 border-none rounded-full text-[14px]";
     } else if (item.priority == "medium") {
-      priorityDesign = "bg-amber-100 text-amber-500 border-none rounded-full text-[16px]";
+      priorityDesign = "bg-amber-100 text-amber-500 border-none rounded-full text-[14px]";
     } else {
-      priorityDesign = "bg-gray-100 text-gray-500 border-none rounded-full text-[16px]"
+      priorityDesign = "bg-gray-100 text-gray-500 border-none rounded-full text-[14px]"
     }
 
     // labels buttons toiri kora holo
@@ -45,18 +45,18 @@ function displayAllCards(data) {
       let icon = "";
 
       if (label === "bug") {
-        design = "bg-red-100 text-red-400 border-none rounded-full text-[16px]";
+        design = "bg-red-100 text-red-400 border-none rounded-full text-[12px]";
         icon = "./assets/bug.png";
       } else if (label === "help wanted") {
-        design = "bg-amber-100 text-amber-400 border-none rounded-full text-[16px]";
+        design = "bg-amber-100 text-amber-400 border-none rounded-full text-[12px]";
         icon = "./assets/helpWanted.png";
       } else if (label === "enhancement") {
-        design = "bg-green-100 text-green-400 border-none rounded-full text-[16px]";
+        design = "bg-green-100 text-green-400 border-none rounded-full text-[12px]";
         icon = "./assets/inhancement.png";
       } else if (label === "good first issue") {
-        design = "bg-blue-100 text-blue-400 border-none rounded-full text-[16px]";
+        design = "bg-blue-100 text-blue-400 border-none rounded-full text-[12px]";
       } else if (label === "documentation") {
-        design = "bg-amber-100 text-amber-400 border-none rounded-full text-[16px]";
+        design = "bg-amber-100 text-amber-400 border-none rounded-full text-[12px]";
       }
 
       // btns += `<button class="btn ${design}"><img src="${icon}" alt=""> ${label}</button>`;
