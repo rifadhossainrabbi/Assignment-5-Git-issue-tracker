@@ -33,18 +33,18 @@ const displayModal = (item) => {
 
   let openAndCloseDesign = "";
   if (item.status == "open") {
-    openAndCloseDesign = "py-1 px-4 bg-green-500 text-white rounded-full";
+    openAndCloseDesign = "py-1 px-6 bg-green-500 text-white rounded-full";
   } else if (item.status == "closed") {
-    openAndCloseDesign = "py-1 px-4 bg-red-500 text-white rounded-full";
+    openAndCloseDesign = "py-1 px-6 bg-red-500 text-white rounded-full";
   }
 
   let priorityDesign = "";
   if (item.priority == "high") {
-    priorityDesign = "bg-red-100 text-red-500 border-none rounded-full text-[14px]";
+    priorityDesign = "py-1 px-6 bg-red-500 text-white border-none rounded-full text-[14px]";
   } else if (item.priority == "medium") {
-    priorityDesign = "bg-amber-100 text-amber-500 border-none rounded-full text-[14px]";
+    priorityDesign = "py-1 px-6 bg-amber-500 text-white border-none rounded-full text-[14px]";
   } else {
-    priorityDesign = "bg-gray-100 text-gray-500 border-none rounded-full text-[14px]"
+    priorityDesign = "py-1 px-6 bg-gray-400 text-white border-none rounded-full text-[14px]"
   }
 
   let btns = "";
@@ -99,7 +99,7 @@ const displayModal = (item) => {
 
           <div>
             <p>Priority:</p>
-            <button class="btn ${priorityDesign}">${item.priority}</button>
+            <button class="${priorityDesign}">${item.priority}</button>
           </div>
         </div>
 
@@ -107,7 +107,7 @@ const displayModal = (item) => {
         <div class="modal-action">
           <form method="dialog">
             <!-- if there is a button in form, it will close the modal -->
-            <button class="btn">Close</button>
+            <button class="btn btn-primary">Close</button>
           </form>
         </div>
   `;
@@ -133,11 +133,11 @@ function displayAllCards(data) {
     // button priority design
     let priorityDesign = "";
     if (item.priority == "high") {
-      priorityDesign = "bg-red-100 text-red-500 border-none rounded-full text-[14px]";
+      priorityDesign = "py-1 px-6 bg-red-100 text-red-500 border-none rounded-full text-[14px]";
     } else if (item.priority == "medium") {
-      priorityDesign = "bg-amber-100 text-amber-500 border-none rounded-full text-[14px]";
+      priorityDesign = "py-1 px-6 bg-amber-100 text-amber-500 border-none rounded-full text-[14px]";
     } else {
-      priorityDesign = "bg-gray-100 text-gray-500 border-none rounded-full text-[14px]"
+      priorityDesign = "py-1 px-6 bg-gray-100 text-gray-500 border-none rounded-full text-[14px]"
     }
 
     // labels buttons toiri kora holo
@@ -175,7 +175,7 @@ function displayAllCards(data) {
         <!-- images part -->
         <div class="imgs flex justify-between items-center">
           <img class="block" src="${statusImage}" alt="${item.status}">
-          <button class=" py-1.5 px-3 ${priorityDesign} rounded-full">${item.priority}</button>
+          <button class="${priorityDesign} rounded-full">${item.priority}</button>
         </div>
 
         <h1 class="font-bold text-2xl line-clamp-1">${item.title}</h1>
