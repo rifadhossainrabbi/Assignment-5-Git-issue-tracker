@@ -242,10 +242,12 @@ async function clickButton(id) {
     displayAllCards(closedCards);
   } else if (id == "searchBtn") {
     const inputSearch = document.getElementById("inputSearch");
-    const inputSearchValue = inputSearch.value;
+    const inputSearchValue = inputSearch.value.toLowerCase();
     const allWords = datas.data;
     console.log(allWords);
-    const filterWords = allWords.filter(word => word.title.toLowerCase().includes(inputSearchValue));
-    displayAllCards(filterWords);
+
+    fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${inputSearchValue}`)
+      .then(res => res.json())
+      .then(items => displayAllCards(items.data));
   }
 }
