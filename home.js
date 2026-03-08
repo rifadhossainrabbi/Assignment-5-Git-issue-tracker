@@ -34,7 +34,6 @@ function displayAllCards(data) {
       cardTopBorder = "border-t-4 border-purple-500";
     }
 
-
     // button priority design
     let priorityDesign = "";
     if (item.priority == "high") {
@@ -105,12 +104,9 @@ function displayAllCards(data) {
   hideSpinner();
 }
 
-
-
-
 async function allCardsLoad() {
   showSpinner();
-  
+
   const res = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
   console.log(res);
   const datas = await res.json();
@@ -119,6 +115,25 @@ async function allCardsLoad() {
   // hideSpinner();
 }
 allCardsLoad();
+
+
+// search syestem 
+document.getElementById("searchBtn").addEventListener("click", () => {
+  showSpinner();
+
+  const inputSearch = document.getElementById("inputSearch");
+  const inputSearchValue = inputSearch.value;
+  console.log(inputSearchValue);
+
+  fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues")
+    .then(res => res.json())
+    .then(data => {
+      const allWords = data.data;
+      console.log(allWords);
+      const filterWords = allWords.filter(word => word.title.toLowerCase().includes(inputSearchValue));
+      displayAllCards(filterWords);
+    });
+})
 
 
 async function clickButton(id) {
@@ -140,8 +155,6 @@ async function clickButton(id) {
 
   if (id == "allBtn") {
     allCardsLoad();
-    // const mainSection = document.getElementById("mainSection").classList.remove("hidden");
-    // console.log(mainSection.children.length);
   } else if (id == "openBtn") {
     const openCards = datas.data.filter(card => card.status === "open");
     displayAllCards(openCards);
@@ -151,5 +164,3 @@ async function clickButton(id) {
     displayAllCards(closedCards);
   }
 }
-
-// clickButton();
